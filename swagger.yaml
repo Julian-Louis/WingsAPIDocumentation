@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  title: API Title
+  title: Wings API
   version: '1.0'
 host: api.server.test
 basePath: /
