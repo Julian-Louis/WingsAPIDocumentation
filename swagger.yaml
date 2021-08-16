@@ -27,7 +27,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: "#/definitions/ApiResponse"
+            $ref: "#/definitions/SystemInfos"
   /api/servers:
     get:
       summary: "Get all servers"
@@ -76,7 +76,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: "#/definitions/ApiResponse"
+            $ref: "#/definitions/ServerModel"
     delete:
       summary: "Delete the server"
       tags:
@@ -534,3 +534,51 @@ definitions:
           type: "string"
         message:
           type: "string"  
+    SystemInfos:
+      type: "object"
+      properties: 
+        version:
+          type: "string"
+          example: "1.4.6"
+        kernel_version:
+          type: "string"
+          example: "4.19.0-17-amd64"
+        architecture:
+          type: "string"
+          example: "amd64"
+        os:
+          type: "string"
+          example: "linux"
+        cpu_count:
+          type: "integer"
+          example: "8"
+    ServerModel:
+      type: "object"
+      properties: 
+        state:
+          type: "string"
+          example: "offline"
+        is_suspended:
+          type: "boolean"
+        utilization:
+          type: "object"
+          properties:
+            memory_bytes:
+              type: "integer"
+            memory_limit_bytes:
+              type: "integer"
+            cpu_absolute:
+              type: "integer"
+            network:
+              type: "object"
+              properties: 
+                rx_bytes:
+                  type: "integer"
+                tx_bytes:
+                  type: "integer"
+            state:
+              type: "string"
+              example: "offline"            
+            disk_bytes:
+              type: "integer"
+              example: "27466166"
